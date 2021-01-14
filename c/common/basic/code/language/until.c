@@ -20,7 +20,7 @@
 
 
 
-#include <stdint.h>
+#include "stddef.h"
 
 #include "basic/header/language/until.h"
 #include "basic/header/core/basic.h"
@@ -81,7 +81,7 @@ void _until( void )
 			{
 				pushInteger(p);
 				pushByte(DATATYPE_REPEAT);
-				runtime_ptr        = (unsigned char *)(uintptr_t)p;
+				runtime_ptr        = (unsigned char *)(uint32_t)p;
 				runtime_linelength = 0; // so that run directive when "finishing" current line doesn't unknowingly move us past the intended line
 			}
 		}

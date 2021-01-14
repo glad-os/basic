@@ -19,8 +19,6 @@
 // 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - -
 
 
-#include <stdint.h>
-
 #include "basic/header/directive/break.h"
 #include "basic/header/directive/escape.h"
 #include "os/header/video/video.h"
