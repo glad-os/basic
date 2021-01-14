@@ -36,8 +36,8 @@
 void video_printline( char *pstring )
 {
 
-        sprintf( pstring );
-        sprintf( "\n" );
+        printf( pstring );
+        printf( "\n" );
 
 }
 
@@ -50,7 +50,7 @@ void video_printline( char *pstring )
 void video_print( char *pstring )
 {
 
-        sprintf( pstring );
+        printf( pstring );
 
 }
 
