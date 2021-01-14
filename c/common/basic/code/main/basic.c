@@ -28,6 +28,7 @@
 */
 #include "string.h"
 #include "stdio.h"
+#include "stdlib.h"
 #include "swi.h"
 
 #include "basic/header/core/basic.h"
@@ -128,8 +129,7 @@ int main( int argc, char **argv )
 	video_print( "BASIC EXITED\n");
 
     // use the OS to exit this process formally
-	struct _kernel_regs in, out;
-	_kernel_swi( OS_ProcessExit, &in, &out );
+    process_exit();
 	return 0;
 
 }

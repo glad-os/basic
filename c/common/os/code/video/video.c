@@ -26,7 +26,7 @@
 #include "os/header/video/video.h"
 #include "basic/header/core/basic.h"
 
-#include "swi.h"
+#include "stdio.h"
 
 
 // 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - - 8 < - - - - - - - - - -
@@ -36,13 +36,8 @@
 void video_printline( char *pstring )
 {
 
-	struct _kernel_regs in, out;
-	in.r[0] = (unsigned int) (uintptr_t) pstring;
-	_kernel_swi( OS_PrintString, &in, &out );
-
-	char *terminator = "\n";
-	in.r[0] = (unsigned int) (uintptr_t) terminator;
-	_kernel_swi( OS_PrintString, &in, &out );
+        sprintf( pstring );
+        sprintf( "\n" );
 
 }
 
@@ -55,9 +50,7 @@ void video_printline( char *pstring )
 void video_print( char *pstring )
 {
 
-	struct _kernel_regs in, out;
-	in.r[0] = (unsigned int) (uintptr_t) pstring;
-	_kernel_swi( OS_PrintString, &in, &out );
+        sprintf( pstring );
 
 }
 
@@ -70,8 +63,8 @@ void video_print( char *pstring )
 void video_clearscreen( void )
 {
 
-	struct _kernel_regs in, out;
-	_kernel_swi( OS_ClearScreen, &in, &out );
+	//struct _kernel_regs in, out;
+	//_kernel_swi( OS_ClearScreen, &in, &out );
 
 
 }
@@ -89,9 +82,9 @@ void video_clearscreen( void )
 void video_setmode( int requested_mode )
 {
 
-	struct _kernel_regs in, out;
-	in.r[0] = (unsigned int) requested_mode;
-	_kernel_swi( OS_SetMode, &in, &out );
+	//struct _kernel_regs in, out;
+	//in.r[0] = (unsigned int) requested_mode;
+	//_kernel_swi( OS_SetMode, &in, &out );
 
 }
 
@@ -135,12 +128,13 @@ void video_line( int x1 , int y1 , int x2 , int y2 )
 void video_setcolour( int foreground, int r, int g, int b )
 {
 
-	struct _kernel_regs in, out;
-	in.r[0] = (unsigned int) foreground;
-	in.r[1] = (unsigned int) r;
-	in.r[2] = (unsigned int) g;
-	in.r[3] = (unsigned int) b;
-	_kernel_swi( OS_SetColour, &in, &out );
+	//struct _kernel_regs in, out;
+	//in.r[0] = (unsigned int) foreground;
+	//in.r[1] = (unsigned int) r;
+	//in.r[2] = (unsigned int) g;
+	//in.r[3] = (unsigned int) b;
+	//_kernel_swi( OS_SetColour, &in, &out );
 
 }
 
+  

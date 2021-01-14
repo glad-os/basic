@@ -105,7 +105,7 @@ clean:
 # basic
 
 BASIC_HOME			= .
-BASIC_INCLUDES		    	= -I $(BASIC_HOME)/c/common -I $(BASIC_HOME)/ext/stdlib-$(ISA_TYPE)/include
+BASIC_INCLUDES		    	= -I $(BASIC_HOME)/c/common -I $(BASIC_HOME)/../stdlib/c/common/include
 
 BASIC_FILES_C_MAIN     		= $(patsubst %.c,%.o,$(shell find $(BASIC_HOME)/c/common/basic/code/main      -type f -name '*.c'))
 BASIC_FILES_C_CORE     		= $(patsubst %.c,%.o,$(shell find $(BASIC_HOME)/c/common/basic/code/core      -type f -name '*.c'))
@@ -118,7 +118,7 @@ BASIC_FLAGS_C	         	= $(FLAGS_C) $(BASIC_INCLUDES)
 BASIC_FILES_C     		= $(BASIC_FILES_C_MAIN) $(BASIC_FILES_C_CORE) $(BASIC_FILES_C_DIRECTIVE) $(BASIC_FILES_C_FUNCTION) $(BASIC_FILES_C_LANGUAGE) $(BASIC_FILES_C_OS) 
 
 basic: basic_c
-	$(LD)  	linker.ld -o basic.elf $(BASIC_FILES_C) ext/stdlib-$(ISA_TYPE)/stdlib-$(ISA_TYPE).a
+	$(LD)  	linker.ld -o basic.elf $(BASIC_FILES_C) ../stdlib/stdlib-$(ISA_TYPE).a
 
 	$(OBJCOPY) -I elf32-little -O binary --strip-debug --strip-unneeded --verbose basic.elf basic.bin 
 	$(OBJCOPY) basic.elf -O ihex basic.hex
