@@ -63,7 +63,7 @@ void video_clearscreen( void )
 
 	//struct _kernel_regs in, out;
 	//_kernel_swi( OS_ClearScreen, &in, &out );
-
+        cls();
 
 }
 
@@ -132,6 +132,7 @@ void video_setcolour( int foreground, int r, int g, int b )
 	//in.r[2] = (unsigned int) g;
 	//in.r[3] = (unsigned int) b;
 	//_kernel_swi( OS_SetColour, &in, &out );
+        setcolour( foreground, r, g, b );
 
 }
 
