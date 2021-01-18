@@ -29,7 +29,6 @@
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "swi.h"
 
 #include "basic/header/core/basic.h"
 #include "basic/header/core/lex.h"

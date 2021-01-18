@@ -23,7 +23,6 @@
 
 #include "basic/header/core/basic.h"
 #include "os/header/video/video.h"
-#include "swi.h"
 #include "stdio.h"
 
 
