@@ -99,12 +99,11 @@ int main( int argc, char **argv )
 	_directive_break();
 
 	// stuff in sample BASIC
-	error_state = 0; _initialise_expression_stacks(); initialise_lex("10 FOR x = 1 TO 7"); interpret();
-	error_state = 0; _initialise_expression_stacks(); initialise_lex("20 COLOUR x"); interpret();
+	error_state = 0; _initialise_expression_stacks(); initialise_lex("10 FOR x = 1 TO 250"); interpret();
+	error_state = 0; _initialise_expression_stacks(); initialise_lex("20 COLOUR (x MOD 7)+1"); interpret();
 	error_state = 0; _initialise_expression_stacks(); initialise_lex("30 PRINT \" ARM COMPUTER \""); interpret();
-	error_state = 0; _initialise_expression_stacks(); initialise_lex("40 PRINT chr(10)"); interpret();
-	error_state = 0; _initialise_expression_stacks(); initialise_lex("50 NEXT"); interpret();
-	error_state = 0; _initialise_expression_stacks(); initialise_lex("60 END"); interpret();
+	error_state = 0; _initialise_expression_stacks(); initialise_lex("40 NEXT"); interpret();
+	error_state = 0; _initialise_expression_stacks(); initialise_lex("50 END"); interpret();
 
 
 	while ( !wantToQuit )
