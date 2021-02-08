@@ -69,7 +69,7 @@ void _next( void )
 	
 	popByte();
 	basetype             = popByte();
-	source_ptr           = (unsigned char *)(uint32_t) popInteger();
+	source_ptr           = (unsigned char *)(uintptr_t) popInteger();
 	switch ( basetype )
 	{
 		case DATATYPE_INTEGER :
@@ -135,7 +135,7 @@ void _next( void )
 				pushReal( st_entry_finish.rval );
 				break;
 		}
-		pushInteger( (unsigned int) (uint32_t) source_ptr );
+		pushInteger( (unsigned int) (uintptr_t) source_ptr );
 		pushByte   ( basetype             );
 		pushByte   ( DATATYPE_FOR         );
 		runtime_ptr        = (unsigned char *) ( source_ptr );

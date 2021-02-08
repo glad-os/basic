@@ -50,7 +50,7 @@ void initialise_symbol_table( void )
 {
 
 	unsigned int alter;
-	alter = 16 - ( ((unsigned int) (uint32_t) top ) % 16);
+	alter = 16 - ( ( (uintptr_t) top ) % 16);
 
 	// initialise the heap (base & top) pointers to be just above any stored program (align to 16 byte boundary)
 	heap_base         = top + alter;

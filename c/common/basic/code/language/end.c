@@ -72,13 +72,13 @@ void _finished( void )
 		
 		// pop the construct from the stack and process it (construct identifies the address of PROCEDURE to execute)
 		popByte();
-		pval               = (unsigned char *) (uint32_t) ( (popByte()<<24) + (popByte()<<16) + (popByte()<<8) + popByte() );
+		pval               = (unsigned char *) (uintptr_t) ( (popByte()<<24) + (popByte()<<16) + (popByte()<<8) + popByte() );
 		runtime_ptr        = pval;	// this is a pointer to the line to return control to
 		runtime_linelength = 0;		// on return, _directive_run will use this to "push" us onto the next line, so cancel that effect
 		
 		// pop the (previous) symbol table "extent" that was stacked
-		heap_top          = (unsigned char *) (uint32_t) popInteger();
-		symbol_table_base = (unsigned char *) (uint32_t) popInteger();
+		heap_top          = (unsigned char *) (uintptr_t) popInteger();
+		symbol_table_base = (unsigned char *) (uintptr_t) popInteger();
 		
 	}
 	else if ( expect_token(KEYWORD_IF) )
